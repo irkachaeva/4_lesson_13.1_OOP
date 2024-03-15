@@ -1,5 +1,5 @@
 import pytest
-from utils.classes import Category, Product
+from src.classes import Category, Product
 '''Тест для класса Category'''
 @pytest.fixture
 def category_ball():
@@ -9,7 +9,7 @@ def category_ball():
 def test_init_category(category_ball):
     assert category_ball.name == 'Ball'
     assert category_ball.description == 'Мяч для игры в футбол'
-    assert category_ball.goods == ['Nike', 'adidas', 'Nike']
+    assert category_ball.products == ['Nike', 'adidas', 'Nike']
     assert category_ball.count_uniq_category == 1
 
 
