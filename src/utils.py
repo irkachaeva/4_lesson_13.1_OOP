@@ -1,6 +1,7 @@
 import json
 import os
-from src.classes import Category, Product
+from src.category import Category
+from src.product import Product
 
 data = 'products.json'
 list_category = []
@@ -20,7 +21,3 @@ def get_categories_products():
                               element["price"], element["quantity"])
 
     return [category, product]
-
-print(get_categories_products())
-
-
