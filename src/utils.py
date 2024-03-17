@@ -4,7 +4,7 @@ from src.category import Category
 from src.product import Product
 
 data = 'products.json'
-list_category = []
+categories = []
 
 def get_info(data):
     filepath = os.path.join(os.path.dirname(__file__), data)
@@ -14,10 +14,12 @@ def get_info(data):
 
 def get_categories_products():
     for items in get_info(data):
+        products = []
         category = Category(items["name"], items["description"], items["products"])
-
+        categories.append(category)
         for element in items['products']:
             product = Product(element["name"], element["description"],
                               element["price"], element["quantity"])
+            products.append(product)
 
     return [category, product]
