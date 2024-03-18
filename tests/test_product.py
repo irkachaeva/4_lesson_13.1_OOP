@@ -11,3 +11,6 @@ def test_init_product(product_f):
     assert product_f.description == "256GB, Серый цвет, 200MP камера"
     assert product_f.price == 180000.0
     assert product_f.quantity_stock == 5
+
+
+
