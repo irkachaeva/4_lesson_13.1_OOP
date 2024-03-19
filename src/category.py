@@ -34,9 +34,10 @@ class Category:
     @property
     def product_list(self):
         '''геттер, который выводит список товаров в формате: Продукт, 80 руб. Остаток: 15 шт.'''
+        result = ''
         for item in self.__products:
-            product = f'{item["name"]}, {item["price"]} руб. {item["quantity"]} шт.'
-        return product
+            result += f'{item["name"]}, {item["price"]} руб. Остаток: {item["quantity"]} шт.'
+        return result
 
 
 
