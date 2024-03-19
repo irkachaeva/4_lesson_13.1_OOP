@@ -21,5 +21,6 @@ def product_3():
 
 def test_get_price(product_3):
     product_3.price = 1000
-    assert print(product_3.price) == 1000
+    assert product_3.price == 1000
+
 
