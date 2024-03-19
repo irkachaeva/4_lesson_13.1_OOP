@@ -27,4 +27,4 @@ def category_2():
         "quantity": 8}])
 
 def test_product_list(category_2):
-    assert category_2.product_list == 'Iphone 15, 210000.0 руб. 8 шт.'
+    assert category_2.product_list == 'Iphone 15, 210000.0 руб. Остаток: 8 шт.'
