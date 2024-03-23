@@ -12,8 +12,6 @@ def test_init_product(product_f):
     assert product_f.price == 180000.0
     assert product_f.quantity_stock == 5
 
-#def test_new_product():
-   # assert Product.new_product("Телефон", "мобильный", 10000, 5) == Product("Телефон", "мобильный", 10000, 5)
 
 @pytest.fixture
 def product_3():
@@ -23,4 +21,12 @@ def test_get_price(product_3):
     product_3.price = 1000
     assert product_3.price == 1000
 
+@pytest.fixture
+def product_4():
+    return Product("Iphone 15",{"description": "512GB, Gray space"},210000.0,8)
 
+def test_str(product_4):
+    assert str(product_4) == 'Iphone 15 210000.0руб. Остаток: 8 шт.'
+
+def test_add_prise_quantity(product_4, product_f):
+    assert product_4 + product_f == 2580000.0

@@ -30,3 +30,15 @@ class Product:
             print("Введена некорректная цена")
         else:
             self.__price = new_price #устанавливаем цену, если она удовлетворяет условию выше
+
+
+    ''' строковое отображение в виде:Название продукта, 80 руб. Остаток: 15 шт.'''
+    def __str__(self):
+        return f'{self.name} {self.price}руб. Остаток: {self.quantity_stock} шт.'
+
+    def __add__(self, other):
+        '''складываем объекты между собой таким образом,
+        чтобы результат выполнения сложения двух продуктов был сложением сумм,
+        умноженных на количество на складе.'''
+        return self.quantity_stock * self.price + other.quantity_stock * other.price
+

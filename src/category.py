@@ -1,4 +1,4 @@
-from src.product import Product
+#from src.product import Product
 
 class Category:
     name: str #название
@@ -14,7 +14,6 @@ class Category:
         self.name = name
         self.description = description
         self.__products = products
-        #self.count_of_category = 1
 
         Category.count_of_category += 1
         Category.count_uniq_category += len(self.__products)
@@ -40,8 +39,14 @@ class Category:
         return result
 
 
-
-
+    '''строковое отображение в следующем виде:Название категории, количество продуктов: 200 шт.'''
+    def __len__(self):
+        total_stock = 0
+        for i in self.__products:
+            total_stock += i['quantity']
+        return total_stock
+    def __str__(self):
+        return f'{self.name}, количество продуктов:{len(self)} шт.'
 
 
 
