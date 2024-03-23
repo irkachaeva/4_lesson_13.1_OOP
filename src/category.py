@@ -1,4 +1,4 @@
-#from src.product import Product
+from src.product import Product
 
 class Category:
     name: str #название
@@ -33,9 +33,9 @@ class Category:
     @property
     def product_list(self):
         '''геттер, который выводит список товаров в формате: Продукт, 80 руб. Остаток: 15 шт.'''
-        result = ''
-        for item in self.__products:
-            result += f'{item["name"]}, {item["price"]} руб. Остаток: {item["quantity"]} шт.'
+        #result = ''
+        #for product in self.__products:
+        result = f'{self.__products[0]}, {self.__products[2]} руб. Остаток: {self.__products[3]} шт.'
         return result
 
 
@@ -43,7 +43,7 @@ class Category:
     def __len__(self):
         total_stock = 0
         for i in self.__products:
-            total_stock += i['quantity']
+            total_stock += i[3]
         return total_stock
     def __str__(self):
         return f'{self.name}, количество продуктов:{len(self)} шт.'
