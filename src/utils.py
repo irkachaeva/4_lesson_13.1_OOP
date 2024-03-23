@@ -22,4 +22,4 @@ def get_categories_products():
                               element["price"], element["quantity"])
             products.append(product)
 
-    return [category, product]
+    return [categories, products]

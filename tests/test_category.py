@@ -28,3 +28,18 @@ def category_2():
 
 def test_product_list(category_2):
     assert category_2.product_list == 'Iphone 15, 210000.0 руб. Остаток: 8 шт.'
+
+@pytest.fixture()
+def category_4():
+    return Category('Ball', 'Мяч для игры в футбол', [{
+            "name": "Iphone 15",
+            "description": "512GB, Gray space",
+            "price": 210000.0,
+            "quantity": 8}, {
+            "name": "Samsung Galaxy C23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 5}])
+
+def test_product_str_len(category_4):
+    assert str(category_4) =='Ball, количество продуктов:13 шт.'
