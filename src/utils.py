@@ -12,14 +12,19 @@ def get_info(data):
         content = json.loads(file.read()) #Строковое представление файла
     return content
 
-def get_categories_products():
-    for items in get_info(data):
+def get_categories():
+    categories = []
+    for category_data in get_info(data):
+        name = category_data['name']
+        description = category_data['description']
         products = []
-        category = Category(items["name"], items["description"], items["products"])
-        categories.append(category)
-        for element in items['products']:
-            product = Product(element["name"], element["description"],
-                              element["price"], element["quantity"])
+        for product_data in category_data['products']:
+            name = product_data['name']
+            description = product_data['description']
+            price = product_data['price']
+            quantity = product_data['quantity']
+            product = Product(name, description, price, quantity)
             products.append(product)
-
-    return [categories, products]
+        category = Category(name, description, products)
+        categories.append(category)
+    return categories
