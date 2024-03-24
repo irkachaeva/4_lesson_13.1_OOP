@@ -35,6 +35,7 @@ class Category:
         '''геттер, который выводит список товаров в формате: Продукт, 80 руб. Остаток: 15 шт.'''
         products_info = []
         for product in self.__products:
+
             info = f'{product.name}, {product.price} руб. Остаток: {product.quantity_stock} шт.'
             products_info.append(info)
         return products_info
