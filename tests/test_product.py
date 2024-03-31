@@ -1,5 +1,7 @@
 import pytest
 from src.product import Product
+from src.product import Smartphone
+from src.product import LawnGrass
 
 '''Тест для класса Product'''
 @pytest.fixture
@@ -11,7 +13,6 @@ def test_init_product(product_f):
     assert product_f.description == "256GB, Серый цвет, 200MP камера"
     assert product_f.price == 180000.0
     assert product_f.quantity_stock == 5
-
 
 @pytest.fixture
 def product_3():
@@ -28,5 +29,15 @@ def product_4():
 def test_str(product_4):
     assert str(product_4) == 'Iphone 15 210000.0руб. Остаток: 8 шт.'
 
-def test_add_prise_quantity(product_4, product_f):
-    assert product_4 + product_f == 2580000.0
+@pytest.fixture
+def product_smartphone():
+    return Smartphone("Iphone 15",{"description": "512GB, Gray space"},210000.0,8, 'Turbo', '15 classic', 256, 'pink')
+@pytest.fixture
+def product_smartphone2():
+    return Smartphone("Mi",{"description": "512GB, Gray space"},210000.0,10, 'Turbo', '15 classic', 256, 'pink')
+
+def test_add_prise_quantity(product_f, product_smartphone, product_smartphone2):
+    assert product_smartphone+product_smartphone2 == 3780000.0
+    with pytest.raises(TypeError):
+        product_f + product_smartphone
+
