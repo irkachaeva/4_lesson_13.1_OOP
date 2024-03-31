@@ -18,8 +18,7 @@ class Product:
     @classmethod
     def new_product(cls, name: str, description: str, price: float, quantity_stock: int):
         '''создание нового товара'''
-        new_product = cls(name, description, price, quantity_stock)
-        return new_product
+        return cls(name, description, price, quantity_stock)
 
     @price.setter
     def price(self, new_price):

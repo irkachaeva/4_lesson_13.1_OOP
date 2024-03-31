@@ -51,7 +51,12 @@ class Category:
     def __str__(self):
         return f'{self.name}, количество продуктов:{len(self)} шт.'
 
-
+    def add_product(self, products):
+        '''Функция добавляет в список продуктов новый продукт'''
+        if not isinstance(products, Product):
+            raise TypeError("Добавлять можно только объекты класса Product или его наследников")
+        else:
+            self.__products().append(products.__dict__)
 
 
 
