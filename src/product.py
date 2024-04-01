@@ -38,14 +38,13 @@ class Product:
         чтобы результат выполнения сложения двух продуктов был сложением сумм,
         умноженных на количество на складе.'''
         if type(self) == type(other):
-
             return self.quantity_stock * self.price + other.quantity_stock * other.price
         raise TypeError('Можно складывать товары только из одинаковых классов продуктов')
 
 
 class Smartphone(Product):
-    def __init__(self, name, description, price, quantity_stock, productivity, model, memory, color):
 
+    def __init__(self, name, description, price, quantity_stock, productivity, model, memory, color):
         super().__init__(name, description, price, quantity_stock)
         self.productivity = productivity #производительность
         self.model = model #модель
