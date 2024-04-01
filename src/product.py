@@ -1,3 +1,11 @@
+from abc import ABC, abstractmethod
+class BaseProduct(ABC):
+
+    @abstractmethod
+    '''базовый абстрактный класс'''
+    def new_product(self, *args):
+        pass
+
 class Product:
     name: str #название
     description: str #описание
