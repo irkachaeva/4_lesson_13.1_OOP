@@ -1,4 +1,20 @@
-class Product:
+from abc import ABC, abstractmethod
+class BaseProduct(ABC):
+    '''базовый абстрактный класс'''
+    @abstractmethod
+    def new_product(self, *args):
+        pass
+
+
+class MixinShowObject:
+    def __init__(self, *args, **kwargs):
+        print(repr(self))
+
+    def __repr__(self):
+        return f'Создан объект: {self.__class__.__name__}, {self.__dict__.items()}'
+
+
+class Product(MixinShowObject, BaseProduct):
     name: str #название
     description: str #описание
     price: float #цена
@@ -42,7 +58,7 @@ class Product:
         raise TypeError('Можно складывать товары только из одинаковых классов продуктов')
 
 
-class Smartphone(Product):
+class Smartphone(Product, MixinShowObject):
 
     def __init__(self, name, description, price, quantity_stock, productivity, model, memory, color):
         super().__init__(name, description, price, quantity_stock)
@@ -52,7 +68,7 @@ class Smartphone(Product):
         self.color = color #цвет.
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, MixinShowObject):
 
     def __init__(self, name, description, price, quantity_stock, country, germination_period, color):
         super().__init__(name, description, price, quantity_stock)

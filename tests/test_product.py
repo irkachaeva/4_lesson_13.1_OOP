@@ -41,3 +41,4 @@ def test_add_prise_quantity(product_f, product_smartphone, product_smartphone2):
     with pytest.raises(TypeError):
         product_f + product_smartphone
 
+
