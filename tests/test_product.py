@@ -42,3 +42,6 @@ def test_add_prise_quantity(product_f, product_smartphone, product_smartphone2):
         product_f + product_smartphone
 
 
+def test_zero_quantity(product_4):
+    with pytest.raises(ValueError, match='Tовар с нулевым количеством не может быть добавлен.'):
+        product_4.new_product("Iphone 10",{"description": "512GB, Gray space"},210000.0,0)

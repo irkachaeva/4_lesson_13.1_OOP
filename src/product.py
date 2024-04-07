@@ -34,7 +34,10 @@ class Product(MixinShowObject, BaseProduct):
     @classmethod
     def new_product(cls, name: str, description: str, price: float, quantity_stock: int):
         '''создание нового товара'''
-        return cls(name, description, price, quantity_stock)
+        if quantity_stock == 0:
+            raise ValueError('Tовар с нулевым количеством не может быть добавлен.')
+        else:
+            return cls(name, description, price, quantity_stock)
 
     @price.setter
     def price(self, new_price):
