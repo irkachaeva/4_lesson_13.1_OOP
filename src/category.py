@@ -58,6 +58,17 @@ class Category:
         else:
             self.__products().append(products.__dict__)
 
+    def average_price_products(self):
+        summ_price = 0
+        try:
+            # попытка выполнить код программы
+            for product in self.__products:
+                summ_price += product.price*product.quantity_stock/product.quantity_stock
+            result = summ_price/len(self.__products)
+            return result
 
+        # код, который будет выполняться в случае возникновения ошибки в коде программы
+        except ZeroDivisionError:
+            return 0
 
 
