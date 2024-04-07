@@ -39,7 +39,3 @@ def category_4():
 def test_product_str_len(category_4):
     assert str(category_4) =='Ball, количество продуктов:13 шт.'
 
-
-def add_pproduct():
-
-    pass
