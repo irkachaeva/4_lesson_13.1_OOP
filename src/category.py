@@ -53,22 +53,28 @@ class Category:
 
     def add_product(self, products):
         '''Функция добавляет в список продуктов новый продукт'''
-        if not isinstance(products, Product):
+
+        if isinstance(products, Product):
+            for product in self.__products:
+                if product.quantity_stock == 0:
+                    raise ValueError('Tовар с нулевым количеством не может быть добавлен.')
+        elif not isinstance(products, Product):
             raise TypeError("Добавлять можно только объекты класса Product или его наследников")
         else:
             self.__products().append(products.__dict__)
 
+
     def average_price_products(self):
         summ_price = 0
+        # попытка выполнить код программы
+        for product in self.__products:
+            summ_price += product.price
+
         try:
-            # попытка выполнить код программы
-            for product in self.__products:
-                summ_price += product.price*product.quantity_stock/product.quantity_stock
-            result = summ_price/len(self.__products)
-            return result
+            summ_price / len(self)
+            return summ_price / len(self)
 
         # код, который будет выполняться в случае возникновения ошибки в коде программы
         except ZeroDivisionError:
             return 0
-
 
